@@ -25,13 +25,19 @@ def generera_tal(antal):
 
     # Skapa en tabell med terminaltables
     table = SingleTable(table_data)
+    table.inner_row_border = False
     print(table.table)
 
 
 def start():
-    antal_tal = int(input("Hur lång vill du att sekvensen ska vara? "))
+    try:
+        antal_tal = int(input("Hur lång vill du att sekvensen ska vara? "))
 
-    generera_tal(antal_tal)
+        generera_tal(antal_tal)
+    except ValueError:
+        print("Inputen var ej endast ett tal")
+
+        start()
 
 
 while running:
