@@ -17,13 +17,14 @@ def generera_tal(antal):
 
         header.append('F:{0}'.format(n))
 
+    # Lägg in huvudet och talen till en lista tillsammans
     table_data = [
         header,
         talen
     ]
 
+    # Skapa en tabell med terminaltables
     table = SingleTable(table_data)
-    table.inner_row_border = False
     print(table.table)
 
 
@@ -39,6 +40,6 @@ while running:
     if str(input("Vill du avsluta? ")) == "ja":
         running = False
     else:
-        # Återställ dessa listor för att inte börja upprepa dom vid flera generationer efter varandra
+        # Återställ dessa listor för att inte förstöra sekvensen och huvudet till tabellen
         talen = [0, 1]
         header = ["F:0", "F:1"]
